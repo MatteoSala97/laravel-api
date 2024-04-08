@@ -12,11 +12,8 @@ class ProjectController extends Controller
 {
     public function index(){
 
-        $posts = Project::with('category', 'tags')-> get();
-
-
-
-
+        //eager loading
+        $posts = Project::with('category', 'tags')-> paginate(3);
 
         return response()->json([
             'success'=> true,
