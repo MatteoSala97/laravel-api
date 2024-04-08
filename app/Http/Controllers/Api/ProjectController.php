@@ -6,12 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 
+use App\Models\Project;
+
 class ProjectController extends Controller
 {
     public function index(){
+
+        $posts = Project::all();
+
         return response()->json([
-            'name' => 'Hello',
-            'name-2' =>'World',
+            'success'=> true,
+            'projects' => $posts
         ]);
     }
 }
