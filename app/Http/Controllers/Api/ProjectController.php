@@ -12,7 +12,11 @@ class ProjectController extends Controller
 {
     public function index(){
 
-        $posts = Project::all();
+        $posts = Project::with('category', 'tags')-> get();
+
+
+
+
 
         return response()->json([
             'success'=> true,
